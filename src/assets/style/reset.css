@@ -1,0 +1,37 @@
+@charset "utf-8";
+div, ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, a, span, image, i, button, ::before, ::after, aside, nav, section {
+    box-sizing: border-box;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    /* user-select: none; */
+}
+
+body {
+  font: 12px Helvetica Neue, Arial, Luxi Sans, DejaVu Sans, Tahoma, Hiragino Sans GB, STHeiti, Microsoft YaHei;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+div, ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd {
+  margin: 0;
+  padding: 0;
+  border: none;
+  list-style: none;
+}
+
+/* 全局滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: #e7e9eb;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}

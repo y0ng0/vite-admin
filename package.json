@@ -1,18 +1,48 @@
 {
-  "name": "vite-admin",
+  "name": "toB-product-code-admin-web",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "vite --mode development",
+    "build:test": "vite build --mode test",
+    "build:prod": "vite build --mode production",
+    "preview": "vite preview",
+    "prepare": "husky install",
+    "kso:lint": "eslint --ext .js,.jsx,.vue .",
+    "kso:lint:fix": "eslint --fix --ext .js,.jsx,.vue, ."
   },
   "dependencies": {
-    "vue": "^3.4.21"
+    "@element-plus/icons-vue": "^2.1.0",
+    "axios": "^1.6.2",
+    "dayjs": "^1.11.10",
+    "element-plus": "^2.4.2",
+    "lodash": "^4.17.21",
+    "pinia": "^2.1.7",
+    "vue": "^3.3.4",
+    "vue-i18n": "^9.10.2",
+    "vue-router": "^4.2.5",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.4",
-    "vite": "^5.2.0"
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@vitejs/plugin-legacy": "^4.1.1",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "eslint": "^8.54.0",
+    "eslint-plugin-vue": "^9.18.1",
+    "husky": "^8.0.1",
+    "less": "^4.2.0",
+    "lint-staged": "^13.0.3",
+    "unplugin-auto-import": "^0.16.7",
+    "unplugin-vue-components": "^0.25.2",
+    "vite": "^4.4.5"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,vue}": [
+      "eslint --fix"
+    ]
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
