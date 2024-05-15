@@ -12,9 +12,6 @@ export default ({ mode }) => {
   return defineConfig({
     plugins: [
       vue(),
-      legacyPlugin({
-        targets: ['chrome 52']
-      }),
       AutoImport({
         resolvers: [ElementPlusResolver()],
       }),
@@ -38,10 +35,11 @@ export default ({ mode }) => {
       host: '127.0.0.1',
       port: 5174,
       proxy: {
+        // 将带有'/api'前缀的请求重定向到目标服务器，同时移除'/api'前缀
         '/api': {
-          target: process.env.VITE_SERVER_API_BASE_URL,
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, ''),
+          target: loadEnv(mode,'./').VITE_SERVER_API_BASE_URL,
+          changeOrigin: true, // 如果目标服务器是跨域的，需要这个选项
+          rewrite: path => path.replace(/^\/api/, '')
         }
       }
     },

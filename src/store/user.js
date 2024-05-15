@@ -1,20 +1,14 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 export const useUserStore = defineStore('userStore', () => {
-  const isLogin = ref(false);
-  const updateIsLogin = (bool) => {
-    isLogin.value = bool || false;
-  };
+  const loginStatus = ref(false); // 登录状态
 
-  const userName = ref('');
-  const updateUserName = (newVal) => {
-    userName.value = newVal;
+  const changeLoginStatus = (status) => {
+    loginStatus.value = status;
   };
 
   return {
-    isLogin,
-    updateIsLogin,
-    userName,
-    updateUserName
+    loginStatus,
+    changeLoginStatus,
   };
 });

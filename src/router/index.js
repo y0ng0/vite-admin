@@ -43,7 +43,7 @@ const routes = [
         meta: {}
       },
       {
-        path: 'catalog',
+        path: 'category',
         name: 'CatalogManage',
         component: () => getComponent('../pages/CatalogManage.vue'),
       }
@@ -58,11 +58,11 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const userStore = useUserStore(); // 获取用户 store 实例
-  const { isLogin } = storeToRefs(userStore); // 获取 isLogin 属性
+  const { loginStatus } = storeToRefs(userStore); // 获取 isLogin 属性
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth); // 检查路由是否需要登录权限
 
   // 确保获取到最新的登录状态
-  const isUserLoggedIn = isLogin.value; // 获取最新的登录状态
+  const isUserLoggedIn = loginStatus.value; // 获取最新的登录状态
 
   if (isUserLoggedIn) {
     // 如果路由需要登录权限且用户未登录，则重定向到登录页面
